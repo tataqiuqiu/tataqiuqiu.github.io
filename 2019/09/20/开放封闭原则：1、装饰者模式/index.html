@@ -1,0 +1,152 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> 开放封闭原则：1、装饰者模式 · 大漠落霞</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="开放封闭原则：1、装饰者模式 - cuili"><meta name="keywords"><meta name="author" content="cuili"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://tataqiuqiu.github.io/atom.xml" title="大漠落霞"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="大漠落霞" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.svg"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">开放封闭原则：1、装饰者模式</h1><div class="post-info">2019-09-20<p class="visit"><i data-identity="2019/09/20/开放封闭原则：1、装饰者模式/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h2 id="1、通用方法"><a href="#1、通用方法" class="headerlink" title="1、通用方法"></a>1、通用方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">before</span> = <span class="keyword">function</span>(<span class="params"> beforefn </span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> _self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    beforefn.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">    <span class="keyword">return</span> _self.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">after</span> = <span class="keyword">function</span>(<span class="params"> afterfn </span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> _self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> ret = _self.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">    afterfn.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<p>不污染写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> before = <span class="keyword">function</span> (<span class="params"> fn, beforefn </span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    beforefn.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">    <span class="keyword">return</span> fn.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="title function_">before</span>(</span><br><span class="line">  <span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="title function_">alert</span>(<span class="number">3</span>)&#125;,</span><br><span class="line">  <span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="title function_">alert</span>(<span class="number">2</span>)&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">a = <span class="title function_">before</span>(a, <span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="title function_">alert</span>(<span class="number">1</span>)&#125;)</span><br><span class="line"><span class="title function_">a</span>()</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、例子：数据统计上报"><a href="#2、例子：数据统计上报" class="headerlink" title="2、例子：数据统计上报"></a>2、例子：数据统计上报</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">showLogin</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="string">&#x27;打开登录浮层&#x27;</span> )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">log</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="string">`上报标签为：<span class="subst">$&#123;<span class="variable language_">this</span>.getAttribute( <span class="string">&#x27;tag&#x27;</span> )&#125;</span>`</span> )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">showLogin = showLogin.<span class="title function_">after</span>( log )</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>( <span class="string">&#x27;button&#x27;</span> ).<span class="property">onclick</span> = shoLogin</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、例子：用-AOP-动态改变函数的参数"><a href="#3、例子：用-AOP-动态改变函数的参数" class="headerlink" title="3、例子：用 AOP 动态改变函数的参数"></a>3、例子：用 AOP 动态改变函数的参数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">func</span> = param =&gt; &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>( param )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func = func.<span class="title function_">before</span>(<span class="function"><span class="params">param</span> =&gt;</span> &#123;</span><br><span class="line">  param.<span class="property">b</span> = <span class="string">&#x27;b&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="title function_">func</span>( &#123;<span class="attr">a</span>: <span class="string">&#x27;a&#x27;</span>&#125; ) <span class="comment">// 输出：&#123;a: &#x27;a&#x27;, b: &#x27;b&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4、例子：插件式的表单验证"><a href="#4、例子：插件式的表单验证" class="headerlink" title="4、例子：插件式的表单验证"></a>4、例子：插件式的表单验证</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">before</span> = <span class="keyword">function</span>(<span class="params"> beforefn </span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> _self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> ( beforefn.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> ) === <span class="literal">false</span> ) &#123;</span><br><span class="line">      <span class="comment">// beforefn 返回 false 的情况直接 return , 不再执行后面的原函数</span></span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _self.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">validata</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> ( username.<span class="property">value</span> === <span class="string">&#x27;&#x27;</span> ) &#123;</span><br><span class="line">    alert ( <span class="string">&#x27;用户名不能为空&#x27;</span> )</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> ( password.<span class="property">value</span> === <span class="string">&#x27;&#x27;</span> ) &#123;</span><br><span class="line">    alert ( <span class="string">&#x27;密码不能为空&#x27;</span> )</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">formSubmit</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> param = &#123;</span><br><span class="line">    <span class="attr">username</span>: username.<span class="property">value</span>,</span><br><span class="line">    <span class="attr">password</span>: password.<span class="property">value</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">ajax</span>( <span class="string">&#x27;http://xxx.com/login&#x27;</span>, param )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">formSubmit = formSubmit.<span class="title function_">before</span>( validata )</span><br><span class="line"></span><br><span class="line">submitBtn.<span class="property">onclick</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">fromSubmit</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、注意"><a href="#5、注意" class="headerlink" title="5、注意"></a>5、注意</h2><p>被装饰过的函数，返回的实际上是一个新的函数，如果在原函数上保存了一些属性，那么这些属性会丢失。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">func</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="title function_">alert</span>( <span class="number">1</span> )</span><br><span class="line">&#125;</span><br><span class="line">func.<span class="property">a</span> = <span class="string">&#x27;a&#x27;</span></span><br><span class="line"></span><br><span class="line">func = func.<span class="title function_">after</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="title function_">alert</span>( <span class="number">2</span> )</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="title function_">alert</span>( func.<span class="property">a</span> ) <span class="comment">// 输出：undefined</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6、装饰者模式与代理模式"><a href="#6、装饰者模式与代理模式" class="headerlink" title="6、装饰者模式与代理模式"></a>6、装饰者模式与代理模式</h2><p>最重要的区别是意图和设计目的。</p>
+<p>在虚拟代理实现预图片加载的例子中，本体负责设置 img 节点的 src，代理则提供了预加载的功能，这看起来也是“加入行为”的一种方式，但这种方式和装饰者模式的偏重点不一样。装饰者模式是实实在在的为对象增加新的职责和行为，而代理模式的事情还是跟本体一样，最终都是设置src。但代理加入了一些“聪明”的功能，比如在图片真正加载好之前，先使用一张占位的loading图片反馈给客户。</p>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2019/09/20/sass%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" title="sass常用方法" class="prev">PREV</a><a href="/2019/09/19/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" title="浏览器渲染原理" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2022 <a target="_blank">cuili</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

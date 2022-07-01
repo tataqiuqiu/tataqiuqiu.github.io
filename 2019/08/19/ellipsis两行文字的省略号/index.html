@@ -1,0 +1,140 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> 两行文字带省略号ellipsis · 大漠落霞</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="两行文字带省略号ellipsis - cuili"><meta name="keywords"><meta name="author" content="cuili"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://tataqiuqiu.github.io/atom.xml" title="大漠落霞"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="大漠落霞" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.svg"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">两行文字带省略号ellipsis</h1><div class="post-info">2019-08-19<p class="visit"><i data-identity="2019/08/19/ellipsis两行文字的省略号/" class="article-timer"></i><span>次访问</span></p><a href="https://tataqiuqiu.github.io/demos/vue/test/dist/#/2-line-ellipsis" target="_blank" title="" class="post-demo">去看示例</a></div><div class="post-content"><p><img src="/images/css/ellipsis.png"></p>
+<span id="more"></span>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;lastline-space-ellipsis js-toggle-box&quot;</span> <span class="attr">title</span>=<span class="string">&quot;你让我只 fdkfjkdsjfdsj dfjdsfadf 5555555 aaaaaa 显示2行就只显示2行啊，你让我只显示2行就只显示2行啊，你让我只显示2行就只显示2行啊&quot;</span> &gt;</span></span><br><span class="line">  你让我只显示2行就只显示2行啊，你让我只显示2行就只显示2行啊，你让我只显示2行就只显示2行啊你让我只显示2行就只显示2行啊，你让我只显示2行就只显示2行啊，你让我只显示2行就只显示2行啊 </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.lastline-space-ellipsis</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">40px</span>; <span class="comment">/*用像素表示，不要用em，以免造成不同浏览器下计算出现小数点取舍不同导致1像素的差距【行高*截取行数】*/</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">  <span class="attribute">word-break</span>: break-all; <span class="comment">/*强制打散字符*/</span></span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>; <span class="comment">/*同背景色*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.lastline-space-ellipsis</span><span class="selector-pseudo">::before</span>,</span><br><span class="line"><span class="selector-class">.lastline-space-ellipsis</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>; <span class="comment">/*实际文本颜色*/</span></span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">attr</span>(title);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.lastline-space-ellipsis</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">1</span>; <span class="comment">/*显示在最上面，展示前面的(截取行数-1)行字符*/</span></span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">20px</span>; <span class="comment">/*根据行高和截取行数调整，值为[(截取行数-1)*行高]*/</span></span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>; <span class="comment">/*同背景色*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.lastline-space-ellipsis</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  -webkit-<span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  -webkit-line-clamp: <span class="number">2</span>; <span class="comment">/*截取行数*/</span></span><br><span class="line">  <span class="attribute">text-indent</span>: -<span class="number">3em</span>; <span class="comment">/*行首缩进字符数，值为[-(截取行数-1)*尾部留空字符数]，取负值把每行多padding-right的部分给缩进回去*/</span></span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">3em</span>; <span class="comment">/*尾部留空字符数*/</span></span><br><span class="line">  <span class="comment">/*margin-left: -3em;*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2019/09/19/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" title="浏览器渲染原理" class="prev">PREV</a><a href="/2019/08/05/%E7%BB%99github%E4%B8%8A%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0vue-cli%E6%90%AD%E5%BB%BA%E7%9A%84demo/" title="给github上的博客添加vue-cli搭建的demo" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2022 <a target="_blank">cuili</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

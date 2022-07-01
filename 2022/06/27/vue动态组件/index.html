@@ -1,0 +1,169 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> vue 动态组件 · 大漠落霞</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="vue 动态组件 - cuili"><meta name="keywords"><meta name="author" content="cuili"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://tataqiuqiu.github.io/atom.xml" title="大漠落霞"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="大漠落霞" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.svg"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">vue 动态组件</h1><div class="post-info">2022-06-27<p class="visit"><i data-identity="2022/06/27/vue动态组件/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h3 id="1、常用的引用组件方式"><a href="#1、常用的引用组件方式" class="headerlink" title="1、常用的引用组件方式"></a>1、常用的引用组件方式</h3><p><a href="https://tataqiuqiu.github.io/demos/vue/test/dist/#/app-component-2">例子链接</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ButtonCounter</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">ButtonCounter</span> <span class="keyword">from</span> <span class="string">&quot;./ButtonCounter.vue&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="title class_">ButtonCounter</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、考虑如下场景"><a href="#2、考虑如下场景" class="headerlink" title="2、考虑如下场景"></a>2、考虑如下场景</h3><p><a href="https://tataqiuqiu.github.io/demos/vue/test/dist/#/app-component">例子链接</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;CreateButtomCounter&quot;</span>&gt;</span>点击加载组件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;root&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">CreateButtomCounter</span> &#125; <span class="keyword">from</span> <span class="string">&quot;./CreateButtomCounter.js&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="title class_">CreateButtomCounter</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>CreateButtomCounter.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ButtonCounter</span> <span class="keyword">from</span> <span class="string">&quot;./ButtonCounter.vue&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">CreateButtomCounter</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="title class_">ButtonCounterCom</span> = <span class="title class_">Vue</span>.<span class="title function_">extend</span>(<span class="title class_">ButtonCounter</span>)</span><br><span class="line">  <span class="keyword">const</span> instance = <span class="keyword">new</span> <span class="title class_">ButtonCounterCom</span>().$mount()  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> dom = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#root&quot;</span>)</span><br><span class="line">  dom.<span class="title function_">appendChild</span>(instance.<span class="property">$el</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、Vue-extend"><a href="#3、Vue-extend" class="headerlink" title="3、Vue.extend()"></a>3、Vue.extend()</h3><p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/index.html#Vue-extend">官方文档</a><br><img src="/images/vue-extend.png"></p>
+<p>特点：只能通过自身初始化结构<br>使用范围：<br>（1）挂载在某元素下<br>（2）被vue实例的components引用<br>（3）Vue.component组件引用</p>
+<h3 id="4、Vue-component"><a href="#4、Vue-component" class="headerlink" title="4、Vue.component()"></a>4、Vue.component()</h3><p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/api/index.html#Vue-component">官方文档</a><br><img src="/images/vue-component.png"></p>
+<p>特点：<br>（1）可通过自身初始化组件结构<br>（2）可通过引入vue.extend初始化组件结构<br>（3）可通过第三方模版temple.html初始化组件结构<br>使用范围： 任何已被vue初始化的元素内 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components.html">官方文档</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">//方法3 第三方模板引入</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;templecomponent&#x27;</span>, <span class="keyword">function</span>(<span class="params">resolve, reject</span>) &#123;</span><br><span class="line">  $.<span class="title function_">get</span>(<span class="string">&quot;./../xtemplate/com.html&quot;</span>).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">res</span>) &#123;</span><br><span class="line">    <span class="title function_">resolve</span>(&#123;</span><br><span class="line">      <span class="attr">template</span>: res,</span><br><span class="line">      <span class="attr">props</span>: [<span class="string">&quot;b&quot;</span>],</span><br><span class="line">      <span class="attr">data</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">          <span class="attr">a</span>: <span class="string">&quot;a&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、new-Vue"><a href="#5、new-Vue" class="headerlink" title="5、new Vue"></a>5、new Vue</h3><p>特点：<br>（1）可以通过自身components引用vue.extend构造，通过自身data向构造传参<br>（2）可以通过自身component引用组件模版，通过自身data向组件传参<br>使用范围：<br>（1）仅限于自身</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app1&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dt1</span>&gt;</span><span class="tag">&lt;/<span class="name">dt1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">vueapple</span> <span class="attr">v-bind:b</span>=<span class="string">&quot;msg&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">vueapple</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/x-template&quot;</span> id=<span class="string">&quot;dt1&quot;</span>&gt;</span><br><span class="line">	<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>这里是子组件1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">		<span class="attr">el</span>: <span class="string">&quot;#app1&quot;</span>,</span><br><span class="line">		<span class="attr">data</span>: &#123;</span><br><span class="line">			<span class="attr">msg</span>: <span class="string">&quot;vue实例参数&quot;</span></span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">components</span>: &#123;</span><br><span class="line">			<span class="attr">dt1</span>: &#123;</span><br><span class="line">				<span class="attr">template</span>: <span class="string">&quot;#dt1&quot;</span></span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="attr">vueapple</span>: <span class="title class_">Profile</span> <span class="comment">//【引入构造】</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、Vue-component-与-Vue-extend-关系"><a href="#6、Vue-component-与-Vue-extend-关系" class="headerlink" title="6、Vue.component() 与 Vue.extend() 关系"></a>6、Vue.component() 与 Vue.extend() 关系</h3><p>调用 Vue.component 时<br>1、调用 Vue.extend，即使用基础 Vue 构造器，创建一个“子类”。<br>2、注册全局组件 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/components.html">官方文档</a></p>
+<p>如果是 new Vue 之后调用 Vue.component 呢？<br>以下代码等价</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">CreateButtomCounter</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="title class_">ButtonCounterCom</span> = <span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;button-counter&#x27;</span>, <span class="title class_">ButtonCounter</span>)</span><br><span class="line">  <span class="keyword">const</span> instance = <span class="keyword">new</span> <span class="title class_">ButtonCounterCom</span>().$mount()  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> dom = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#root&quot;</span>)</span><br><span class="line">  dom.<span class="title function_">appendChild</span>(instance.<span class="property">$el</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">CreateButtomCounter</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> <span class="title class_">ButtonCounterCom</span> = <span class="title class_">Vue</span>.<span class="title function_">extend</span>(<span class="title class_">ButtonCounter</span>)</span><br><span class="line">  <span class="keyword">const</span> instance = <span class="keyword">new</span> <span class="title class_">ButtonCounterCom</span>().$mount()  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> dom = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#root&quot;</span>)</span><br><span class="line">  dom.<span class="title function_">appendChild</span>(instance.<span class="property">$el</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7、常用的引用组件方式-与-Vue-extend-的关系"><a href="#7、常用的引用组件方式-与-Vue-extend-的关系" class="headerlink" title="7、常用的引用组件方式 与 Vue.extend() 的关系"></a>7、常用的引用组件方式 与 Vue.extend() 的关系</h3><h3 id="8、-mount"><a href="#8、-mount" class="headerlink" title="8、$mount()"></a>8、$mount()</h3><p>$mount 方法支持传入 2 个参数，第一个是 el，它表示挂载的元素，可以是字符串，也可以是 DOM 对象，如果是字符串在浏览器环境下会调用 query 方法转换成 DOM 对象的。第二个参数是和服务端渲染相关，在浏览器环境下不需要传第二个参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> instance = <span class="keyword">new</span> <span class="title class_">ButtonCounterCom</span>().$mount()  </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dom = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#root&quot;</span>)</span><br><span class="line">dom.<span class="title function_">appendChild</span>(instance.<span class="property">$el</span>)</span><br></pre></td></tr></table></figure>
+<p>$mount()不带参数，会把组件在内存中渲染完毕<br>instance.$el 拿到的就是组件对应的dom元素,可以直接操作dom</p>
+<h3 id="9、经典案例"><a href="#9、经典案例" class="headerlink" title="9、经典案例"></a>9、经典案例</h3><p>Vue.extend + $mount<br><a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN/component/dialog">Dialog</a></p>
+</div></article></div><div class="right-container"><div class="widget"><div id="arAnchorBar"></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/2019/09/20/sass%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" title="sass常用方法" class="next">NEXT</a></div><a href="#comment" class="comment-anchor"></a><div id="vcomments"></div><script>new Valine({
+    el: "#vcomments",
+    appId: "aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz",
+    appKey: "FdzS5SOPHdhYQoEUngQ8K2QW",
+    notify: false,
+    verify: false,
+    avatar: "robohash",
+    visitor: true,
+    placeholder: "随便说点什么～.～",
+});</script><div class="copyright"><p>© 2016 - 2022 <a target="_blank">cuili</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = true;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> 大漠落霞</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description"><meta name="keywords"><meta name="author" content="cuili"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="https://tataqiuqiu.github.io/atom.xml" title="大漠落霞"><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="大漠落霞" type="application/atom+xml">
+</head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.svg"></a><ul id="nav_list" class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="博文" class="nav-list-link">博文</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div><div id="nav_btn" class="nav-btn"><span></span><span></span><span></span></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><ul class="home post-list"><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2022/06/27/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" class="post-title-link">vue 动态组件</a></h2><div class="post-info">2022-06-27<p class="visit"><i data-identity="2022/06/27/vue动态组件/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h3 id="1、常用的引用组件方式"><a href="#1、常用的引用组件方式" class="headerlink" title="1、常用的引用组件方式"></a>1、常用的引用组件方式</h3><p><a href="https://tataqiuqiu.github.io/demos/vue/test/dist/#/app-component-2">例子链接</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ButtonCounter</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">ButtonCounter</span> <span class="keyword">from</span> <span class="string">&quot;./ButtonCounter.vue&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="title class_">ButtonCounter</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、考虑如下场景"><a href="#2、考虑如下场景" class="headerlink" title="2、考虑如下场景"></a>2、考虑如下场景</h3><p><a href="https://tataqiuqiu.github.io/demos/vue/test/dist/#/app-component">例子链接</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;CreateButtomCounter&quot;</span>&gt;</span>点击加载组件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;root&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div><a href="/2022/06/27/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/09/20/sass%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="post-title-link">sass常用方法</a></h2><div class="post-info">2019-09-20<p class="visit"><i data-identity="2019/09/20/sass常用方法/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h2 id="一、控制指令"><a href="#一、控制指令" class="headerlink" title="一、控制指令:"></a>一、控制指令:</h2><h3 id="1、-for-循环"><a href="#1、-for-循环" class="headerlink" title="1、@for 循环"></a>1、@for 循环</h3><p>@for $var from &lt;start&gt; through &lt;end&gt;</p>
+<p>@for $var from &lt;start&gt; to &lt;end&gt;</p>
+<p>当使用 through 时，条件范围包含 &lt;start&gt; 与 &lt;end&gt; 的值，而使用 to 时条件范围只包含 &lt;start&gt; 的值不包含 &lt;end&gt; 的值</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@for</span> $i from <span class="number">1</span> through <span class="number">3</span> &#123;</span><br><span class="line">  <span class="selector-class">.item-</span>#&#123;$<span class="selector-tag">i</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(($i * <span class="number">30</span>) * <span class="number">1deg</span>);</span><br><span class="line">    <span class="attribute">animation</span>: load <span class="number">1.2s</span> linear (($i - <span class="number">1</span>) / <span class="number">10</span>) * <span class="number">1s</span> infinite;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><a href="/2019/09/20/sass%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/09/20/%E5%BC%80%E6%94%BE%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99%EF%BC%9A1%E3%80%81%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/" class="post-title-link">开放封闭原则：1、装饰者模式</a></h2><div class="post-info">2019-09-20<p class="visit"><i data-identity="2019/09/20/开放封闭原则：1、装饰者模式/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h2 id="1、通用方法"><a href="#1、通用方法" class="headerlink" title="1、通用方法"></a>1、通用方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">before</span> = <span class="keyword">function</span>(<span class="params"> beforefn </span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> _self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    beforefn.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">    <span class="keyword">return</span> _self.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">after</span> = <span class="keyword">function</span>(<span class="params"> afterfn </span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> _self = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> ret = _self.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">    afterfn.<span class="title function_">apply</span>( <span class="variable language_">this</span>, <span class="variable language_">arguments</span> )</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><a href="/2019/09/20/%E5%BC%80%E6%94%BE%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99%EF%BC%9A1%E3%80%81%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/09/19/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" class="post-title-link">浏览器渲染原理</a></h2><div class="post-info">2019-09-19<p class="visit"><i data-identity="2019/09/19/浏览器渲染原理/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><h3 id="1、现代web开发"><a href="#1、现代web开发" class="headerlink" title="1、现代web开发"></a>1、现代web开发</h3><p><img src="/images/browser/%E7%8E%B0%E4%BB%A3web%E5%BC%80%E5%8F%91.jpg"></p></div><a href="/2019/09/19/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/08/19/ellipsis%E4%B8%A4%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E7%9C%81%E7%95%A5%E5%8F%B7/" class="post-title-link">两行文字带省略号ellipsis</a></h2><div class="post-info">2019-08-19<p class="visit"><i data-identity="2019/08/19/ellipsis两行文字的省略号/" class="article-timer"></i><span>次访问</span></p><a href="https://tataqiuqiu.github.io/demos/vue/test/dist/#/2-line-ellipsis" target="_blank" title="" class="post-demo">去看示例</a></div><div class="post-content"><p><img src="/images/css/ellipsis.png"></p></div><a href="/2019/08/19/ellipsis%E4%B8%A4%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E7%9C%81%E7%95%A5%E5%8F%B7/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/08/05/%E7%BB%99github%E4%B8%8A%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0vue-cli%E6%90%AD%E5%BB%BA%E7%9A%84demo/" class="post-title-link">给github上的博客添加vue-cli搭建的demo</a></h2><div class="post-info">2019-08-05<p class="visit"><i data-identity="2019/08/05/给github上的博客添加vue-cli搭建的demo/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><p>记录一下这个blog添加demo的过程</p>
+<h2 id="一、创建一个新的github仓库。"><a href="#一、创建一个新的github仓库。" class="headerlink" title="一、创建一个新的github仓库。"></a>一、创建一个新的github仓库。</h2><h3 id="1、创建库，起名demos"><a href="#1、创建库，起名demos" class="headerlink" title="1、创建库，起名demos"></a>1、创建库，起名demos</h3><p><img src="/images/github%E6%96%B0%E5%BB%BA%E5%BA%93.png"></p></div><a href="/2019/08/05/%E7%BB%99github%E4%B8%8A%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0vue-cli%E6%90%AD%E5%BB%BA%E7%9A%84demo/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/08/05/vue%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" class="post-title-link">vue父子组件双向绑定</a></h2><div class="post-info">2019-08-05<p class="visit"><i data-identity="2019/08/05/vue父子组件双向绑定/" class="article-timer"></i><span>次访问</span></p><a href="https://tataqiuqiu.github.io/demos/vue/test/dist/#/bb" target="_blank" title="" class="post-demo">去看示例</a></div><div class="post-content"><h3 id="1、sync修饰符（v2-3-0-新增）"><a href="#1、sync修饰符（v2-3-0-新增）" class="headerlink" title="1、sync修饰符（v2.3.0+ 新增）"></a>1、sync修饰符（v2.3.0+ 新增）</h3><p><a target="_blank" rel="noopener" href="https://github.com/tataqiuqiu/demos/blob/master/vue/test/src/views/Bb.vue">父组件代码</a>  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">child</span> <span class="attr">:value.sync</span>=<span class="string">&quot;doc&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>father： <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;doc&quot;</span> /&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>result： <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-html</span>=<span class="string">&quot;doc&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></div><a href="/2019/08/05/vue%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/08/02/vue-test-utils%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="post-title-link">vue-test-utils测试用例常用方法</a></h2><div class="post-info">2019-08-02<p class="visit"><i data-identity="2019/08/02/vue-test-utils测试用例常用方法/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><p>测试用例，代码自动化监测，codereview的第一步。是个不应被忽视的环节。</p></div><a href="/2019/08/02/vue-test-utils%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/08/02/hexo%E5%90%AF%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/" class="post-title-link">hexo启动部署博客的命令</a></h2><div class="post-info">2019-08-02<p class="visit"><i data-identity="2019/08/02/hexo启动部署博客的命令/" class="article-timer"></i><span>次访问</span></p></div><div class="post-content"><p>使用git bash工具</p>
+<h2 id="本地目录"><a href="#本地目录" class="headerlink" title="本地目录"></a>本地目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ e: 00aa/blog</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g </span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></div><a href="/2019/08/02/hexo%E5%90%AF%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%91%BD%E4%BB%A4/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2019/08/02/markdown%E5%8F%82%E8%80%83/" class="post-title-link">markdown参考</a></h2><div class="post-info">2019-08-02<p class="visit"><i data-identity="2019/08/02/markdown参考/" class="article-timer"></i><span>次访问</span></p><a href="https://bitsofco.de/the-background-properties/" target="_blank" title="https://bitsofco.de/the-background-properties/" class="post-from">原文地址</a><a href="../../../demos/201703/background.html" target="_blank" title="" class="post-demo">去看示例</a></div><div class="post-content"><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! <code>This</code> is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div><a href="/2019/08/02/markdown%E5%8F%82%E8%80%83/" class="read-more">...more</a></article></li></ul><div class="right-container"><div class="widget"><div class="category"><h4>分类归档</h4><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/css/">css</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/css/ellipsis/">ellipsis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/css/sass/">sass</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/vue/">vue</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/vue/test-utils/">test-utils</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/vue/vue-cli/">vue-cli</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/vue/%E7%BB%84%E4%BB%B6/">组件</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/">代码优化</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/">渲染原理</a><span class="category-list-count">1</span></li></ul></li></ul></div></div><div class="widget"><div class="tagcloud"><h4>标签云</h4><a href="/tags/browser/" style="font-size: 10px;">browser</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/sass/" style="font-size: 10px;">sass</a> <a href="/tags/the-Open-Close/" style="font-size: 10px;">the Open-Close</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue-test-utils/" style="font-size: 10px;">vue-test-utils</a></div></div><div class="widget"><div class="recent"><h4>最近文章</h4><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/06/27/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/">vue 动态组件</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/20/sass%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">sass常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/20/%E5%BC%80%E6%94%BE%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99%EF%BC%9A1%E3%80%81%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">开放封闭原则：1、装饰者模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/19/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86/">浏览器渲染原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/19/ellipsis%E4%B8%A4%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E7%9C%81%E7%95%A5%E5%8F%B7/">两行文字带省略号ellipsis</a></li></ul></div></div></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"></div><div class="copyright"><p>© 2016 - 2022 <a target="_blank">cuili</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p><p> <span style="padding-right: 6px;">闽ICP备16007301号-2</span></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/jquery-1.8.2.min.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/articleCatalog.js"></script><script src="https://bubuzou.oss-cn-shenzhen.aliyuncs.com/blog/202010/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>const valineAPI = (() => {
+try {
+    AV.init("aD8jJBpu4oew3ovNY73z6Rdq-gzGzoHsz", "FdzS5SOPHdhYQoEUngQ8K2QW");
+} catch(error) {}
+const isExist = (identity) => {
+    identity = identity || getRealPath();
+    let query = new AV.Query('Timer');
+    return new Promise((resolve, reject) => {
+    query.equalTo("identity", identity);
+    query.find().then(results => {
+        resolve(results.length > 0);
+    }, error => reject(error));
+    })
+}
+
+const _get = (identity) => {
+    let query = null;
+    if(identity && identity instanceof Array){
+    let querys = [];
+    for(let i = 0; i < identity.length; ++i) {
+        querys[i] = new AV.Query('Timer');
+        querys[i].equalTo('identity', identity[i]);
+    }
+    query = AV.Query.or.apply(null ,querys);
+    } else {
+    identity = identity || getRealPath();
+    query = new AV.Query("Timer");
+    query.equalTo("identity", identity);
+    }
+
+    return new Promise((resolve, reject) => {
+    query.find()
+    .then(results => resolve(results))
+    .catch(error => reject(error))
+    })
+}
+
+const create = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let Todo = AV.Object.extend('Timer');
+    let todo = new Todo();
+    todo.set("times", 1);
+    todo.set("identity", identity);
+    todo.save().then(res => resolve(true), error => reject(error));
+    })
+}
+
+const update = (identity) => {
+    identity = identity || getRealPath();
+    return new Promise((resolve, reject) => {
+    let query = new AV.Query('Timer');
+    query.equalTo("identity", identity);
+    query.find().then(todos => {
+        todos.forEach(todo => {
+        todo.set("times", todo.attributes.times + 1);
+        });
+        return AV.Object.saveAll(todos);
+    }).then(todos => resolve(true), error => reject(error));
+    })
+}
+
+return {
+    isExist,
+    _get,
+    update,
+    create
+}
+})()
+
+const calcAndWriteTimes = () => {
+let isPost = false;
+
+let timerAllDOM = document.querySelectorAll(".article-timer");
+
+if(isPost) {
+    let identity = timerAllDOM[0].getAttribute("data-identity");
+    valineAPI.isExist(identity)
+    .then(exist => {
+    if(exist) {
+        return valineAPI.update(identity);
+    }
+    return new Promise(resolve => resolve(true));
+    })
+    .then( succuess => valineAPI._get(identity))
+    .then( result => timerAllDOM[0].innerText = result[0].attributes.times)
+    .catch(error => console.log(error.message))
+    return ;
+}
+
+let timerDOMCache = {};
+
+for(let timerDOM of timerAllDOM) {
+    let identity = timerDOM.getAttribute("data-identity");
+    if(timerDOMCache.hasOwnProperty(identity)){
+    timerDOMCache[identity].dom.push(timerDOM);
+    }else{
+    timerDOMCache[identity] = {
+        dom: [timerDOM],
+        times: undefined
+    };
+    }
+}
+
+let identities = Object.keys(timerDOMCache);
+valineAPI._get(identities).then(results => {
+    for(let result of results) {
+    let {identity, times} = result.attributes;
+    timerDOMCache[identity].times = times;
+    timerDOMCache[identity].dom.map(item => item.innerText = times);
+    }
+    for(let identity of identities) {
+    if(timerDOMCache[identity].times){
+        continue;
+    }
+    timerDOMCache[identity].dom.map(item => item.innerText = 1);
+    valineAPI.create(identity);
+    }
+}).catch(error => console.log(error.message))
+}
+
+if(true){
+calcAndWriteTimes();
+}</script></body></html>
